@@ -40,6 +40,10 @@
   ignore_errors: yes
   when: not cluster_template_dry_run
 
+- name: Check cluster status
+  pause:
+    prompt: "Check cluster status and manually Resolve failues. Once fixed Quit this Playbook."
+    
 - name: Find cluster template command URL for troubleshooting
   set_fact:
     command_details_url: "{{ cluster_template_result.url | regex_replace('/api/.*','/cmf/command/' ~ cluster_template_result.json.id | string ~ '/details' ) }}"
