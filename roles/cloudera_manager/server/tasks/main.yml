@@ -35,11 +35,11 @@
     ansible_facts.packages['cloudera-manager-server'][0].version is version(cloudera_manager_version, '<')
 
 # This will update the daemons and the agent on this host as well.
-- name: Install Cloudera Manager Server
-  ansible.builtin.package:
-    lock_timeout: "{{ (ansible_os_family == 'RedHat') | ternary(60, omit) }}"
-    name: cloudera-manager-server
-    state: latest
+# - name: Install Cloudera Manager Server
+#   ansible.builtin.package:
+#     lock_timeout: "{{ (ansible_os_family == 'RedHat') | ternary(60, omit) }}"
+#     name: cloudera-manager-server
+#     state: latest
 
 - name: Customize CMF_SERVER_ARGS
   lineinfile:

@@ -17,7 +17,7 @@
 # This variable is used by other roles
 # please take care when changing it
 - set_fact:
-    databases: "{{ databases_cm_svcs | combine(definition.mgmt.databases | default({}), recursive=True) }}"
+    databases: "{{ databases_cm_svcs | combine(definition.databases.databases | default({}), recursive=True) }}"
 
 - name: Reset custom configuration dictionary
   set_fact:
